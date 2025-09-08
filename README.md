@@ -5,7 +5,7 @@
 將[教育部四本辭典](https://language.moe.gov.tw/001/Upload/Files/site_content/M0001/respub/index.html)經程式轉換成可被訓練得文字檔訓練。
 ## 訓練步驟
 ### Pretokenize
-1. 將辭典資料預處理完成後，將tinystrory.py的pretokenize函式中shard_filename的值改成預處理後的資料路徑。
+1. 將[辭典資料預處理](https://huggingface.co/datasets/NingJing0718/Traditional_Chinese_Dictionary_Preprocess/tree/main)完成後，將tinystrory.py的pretokenize函式中shard_filename的值改成預處理後的資料路徑。
 ```python
 def pretokenize(vocab_size):
     # iterate the shards and tokenize all of them one by one
@@ -78,7 +78,7 @@ class PretokDataset(torch.utils.data.IterableDataset):
                 y = chunk[1:]
                 yield x, y
 ```
-調整train.py中的參數
+調整train.py中的參數。
 
 | 參數名稱                        | 參數解釋                                                                                                                                                                                                                  |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -113,6 +113,8 @@ class PretokDataset(torch.utils.data.IterableDataset):
 python train.py
 ```
 ## 訓練結果
+### 模型
+模型檔案在我的[Hugging Face](https://huggingface.co/NingJing0718/Llama2_zh)內
 ### 各模型Loss
 | 模型名稱         | loss   | 訓練時間(單位：小時) |
 | ------------ | ------ | ----------- |
