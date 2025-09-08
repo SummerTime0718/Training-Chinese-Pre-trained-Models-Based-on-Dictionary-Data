@@ -38,7 +38,7 @@ class PretokDataset(torch.utils.data.IterableDataset):
         self.max_seq_len = max_seq_len
         self.vocab_size = vocab_size
         self.vocab_source = vocab_source
-
+        
     def __iter__(self):
         DATA_CACHE_DIR = ""
         # get worker info within a DataLoader
